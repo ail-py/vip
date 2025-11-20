@@ -1,1 +1,1 @@
-This folder contains the built output assets for the worker "vless-proxy-worker" generated at 2025-11-20T16:01:49.943Z.
+This folder contains the built output assets for the worker "vless-proxy-worker" generated at 2025-11-20T18:55:37.125Z.

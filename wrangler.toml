@@ -1,4 +1,5 @@
 name = "vless-proxy-worker"
+account_id = "REPLACE_WITH_YOUR_CLOUDFLARE_ACCOUNT_ID"
 main = "src/index.tsx"
 compatibility_date = "2024-03-20"
 
@@ -13,14 +14,13 @@ ADMIN_SECRET = "your-strong-secret"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "vless-db"
-# The D1 `database_id` must be a real database id (UUID) from Cloudflare.
-# It is currently a placeholder which causes the validation error (10021).
-# To fix: replace the line below with your actual database id, for example:
-# database_id = "01234567-89ab-cdef-0123-456789abcdef"
-# If you don't need D1 for this deployment, you can comment out or remove
-# the whole `[[d1_databases]]` block.
-# database_id = "your-d1-database-id"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+# The D1 `database_id` must be the real database id (UUID) from Cloudflare.
+# Replace the placeholder above with the actual UUID for your D1 database,
+# for example: `database_id = "01234567-89ab-cdef-0123-456789abcdef"`.
+# If you prefer to bind by name in your runtime, you can keep `database_name`,
+# but Wrangler validates that a `database_id` exists for D1 bindings. If you
+# don't need D1 for this deployment, comment out or remove the `[[d1_databases]]` block.
 
 [build]
 command = "npm run build:wasm"
