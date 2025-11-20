@@ -5,7 +5,9 @@
   "main": "src/index.tsx",
   "scripts": {
     "dev": "npm run build:wasm && wrangler dev",
-    "deploy": "npm run build:full && wrangler deploy",
+    "preflight": "node ./scripts/preflight.js",
+    "deploy": "npm run preflight && npm run build:full && wrangler deploy",
+    "deploy:prod": "npm run preflight && npm run build:full && npx wrangler deploy --account-id $CF_ACCOUNT_ID --name vless-proxy-worker",
     "build:wasm": "wasm-pack build src/rust --target web",
     "build:bundle": "npx wrangler deploy --dry-run --outdir dist --name vless-proxy-worker",
     "obfuscate": "node ./scripts/obfuscate.js",
