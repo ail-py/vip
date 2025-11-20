@@ -1,5 +1,9 @@
 name: Deploy to Cloudflare Workers
 
+pull_request:
+    branches: [main]
+  workflow_dispatch:
+
 on:
   push:
     branches:
