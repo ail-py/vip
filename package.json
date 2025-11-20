@@ -5,8 +5,11 @@
   "main": "src/index.tsx",
   "scripts": {
     "dev": "npm run build:wasm && wrangler dev",
-    "deploy": "npm run build:wasm && wrangler deploy",
+    "deploy": "npm run build:full && wrangler deploy",
     "build:wasm": "wasm-pack build src/rust --target web",
+    "build:bundle": "npx wrangler deploy --dry-run --outdir dist --name vless-proxy-worker",
+    "obfuscate": "node ./scripts/obfuscate.js",
+    "build:full": "npm run build:wasm && npm run build:bundle && npm run obfuscate",
     "test": "vitest",
     "lint": "biome lint .",
     "format": "biome format --write ."

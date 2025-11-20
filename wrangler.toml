@@ -15,4 +15,4 @@ database_name = "vless-db"
 database_id = "your-d1-database-id"
 
 [build]
-command = "wasm-pack build src/rust && npx javascript-obfuscator ./wrangler-dist --output ./wrangler-dist"
+command = "npm run build:wasm"
